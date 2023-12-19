@@ -1,0 +1,360 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+  <title> Bool's Tech </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="templates/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="templates/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="templates/css/responsive.css" rel="stylesheet" />
+  
+</head>
+
+<body >
+  <div class="hero_area" style="background-image: url(templates/background1.jpg); max-width: 100%; height: 100%">
+    <!-- header section strats -->
+  
+
+    <header class="header_section" ">
+      <div class="header_top">
+        <div class="container-fluid">
+          <div class="contact_link-container">
+            <a href="" class="contact_link1">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span style="color: blue">
+                Livraisons partout au Sénégal
+              </span>
+            </a>
+            <a href="" class="contact_link2">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span style="color: blue">
+                Tell : +221 780133945
+              </span>
+            </a>
+            <a href="" class="contact_link3">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span style="color:blue">
+                a.f67@zig.univ.sn
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+              <span>
+                Dalal Jamm sur Bool's Tech 
+              </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'index' %}">Acceuil <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'produits' %}"> Produits</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'service' %}"> Services </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+                
+              </ul>
+            </div>
+          </nav>
+        </div>  
+      </div>
+    </header>
+    <!-- end header section -->
+
+
+    
+    <!-- slider section -->
+    <section class=" slider_section ">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      Bienvenue <br>
+                      <span>
+                        sur Bool's Tech
+                        <h3>Votre satisfaction , notre Priorité</h3>
+                      </span>
+                    </h1>
+                    <p>
+                   
+               
+                    </p>
+                    <div class="btn-box">
+                            {% if user.panier %}
+                          <a href="{% url 'cart'%}" class="btn-1">Voir mon Panier({{user.panier.Articles.count}}) </a>
+                          <a href="{% url 'delete_cart'%}" class="btn-1"> Supprimer mon Panier </a>
+                          
+                      {% endif %}
+                       
+                      <a href="" class="btn-2">{{ user.username }}</a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  </div>
+
+  <section class="service_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Nos Services
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="box b1">
+            <div class="img-box">
+              <img src="templates/droi.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Services de Gestion de compte<br><br>
+                </h5>
+                <p>
+                  {% if user.is_authenticated %}
+                  <span>
+                  Non d'tilisateur :{{ user.username }} <br><br><br>
+                  </span>
+                    <a href="{% url 'logout' %}">Déconnexion</a>
+                  {% else %}
+                    <a href="{% url 'signup' %}"><h1>S'inscrire</h1> </a>
+                    <a href="{% url 'connection' %}"><h1>Connection</h1> </a>
+                  {% endif %}
+                </p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="box b2">
+            <div class="img-box">
+              <img src="templates/retour.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Retour de Produit
+              </h5>
+              <p>
+                Bool's-tech met en votre disposition une services fiable de retour de points. Nous acceptons de reprendre les produits commander s'il y'a un soucis technique mais en mois de 72h apres avoir recu le produit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="box b3">
+            <div class="img-box">
+              <img src="templates/partenariat.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Services de Partenairiat
+              </h5>
+              <p>
+                Nous acceptons des Partenairiats avec les grands et moyens commercants . Le mail est disponible dans la Page
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about_section layout_padding-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img_container">
+            <div class="img-box">
+              <img src="templates/1.png" class="about_img1" alt="" />
+              <img src="templates/2.jpg" class="about_img2" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="detail-box">
+            <div class="heading_container ">
+              <h2>
+                Qui sommes nous ?
+              </h2>
+            </div>
+            <p>
+              Nous sommes une équipes de jeune Sénégalais qui pour vocation d'aider les commercants en leurs donnant la possibilités de faire part de leur Produits avec plus de facilité et de modernités.
+
+            </p>
+            <p>
+              Notre Objectif principales est de permettre a tout a chacun des habitants du Sénégal d'accéder avec la plus grande facilité des Produits de qualités sous 24H
+            </pH>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_logo">
+            <a class="navbar-brand" href="index.html">
+              <span>
+                Particularité
+              </span>
+            </a>
+            <p>
+              bool's-tech vous garantie la sécurité .Et tous nos produits a des prix réduites
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              Réseau Sociaux
+            </h5>
+            <ul>
+              <li>
+                <a href="">
+                  facebook
+                </a>
+              </li>
+              <li>  
+                <a href="">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  twitter
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Télégram
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Contact 
+            </h5>
+          </div>
+          <div class="info_contact">
+            <a href="" class="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Diourbel - Sénégal,
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Téléphone : 780133945
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                a.f67@zig.univ.sn
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Recevoir nos infos quotidienne
+            </h5>
+            <form action="#">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Envoyer
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section">
+    <p>
+      &copy; <span id="currentYear"></span> All Rights Reserved.<br> Design by
+      Ablaye Faye etudiant en licence 2 Ingenieurie Informatique
+    </p>
+  </footer>
+  <!-- footer section -->
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+
+</html>
+
