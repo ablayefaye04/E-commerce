@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #352a09;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #ffc107;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .service-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nos Services</h1>
+    </header>
+
+    <nav>
+        <a href="{% url 'index' %}">Accueil</a>
+        <a href="{% url 'produits' %}">Produits</a>
+        <a href="{% url 'cart'%}">Panier({{user.panier.Articles.count}}) </a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+
+    <div class="services-container">
+
+        <div class="service-card">
+         
+            <h2>Livraison Rapide</h2>
+            <p>Recevez vos produits rapidement à votre porte.</p>
+            
+        </div>
+
+        <div class="service-card">
+           
+            <h2>Service Client 24/7</h2>
+            <p>Notre équipe est disponible pour vous aider à tout moment.</p>
+          
+        </div>
+
+        <div class="service-card">
+            
+            <h2>Garantie de Qualité</h2>
+            <p>Nos produits sont de haute qualité et garantis.</p>
+            
+        </div>
+
+        <div class="service-card">
+           
+            <h2>Partenairiat</h2>
+            <p>Nous proposons des service de partenairiat de hait niveau.</p>
+            
+        </div>
+
+    </div><br>><br><br><br><br><br><br>><br><br><br><br><br><br>><br><br>
+
+    <footer>
+        <p>&copy;  Tous droits réservés.<br>Design by
+          Ablaye Faye etudiant en licence 2 Ingenieurie Informatique 2023</p>
+    </footer>
+
+</body>
+</html>
+

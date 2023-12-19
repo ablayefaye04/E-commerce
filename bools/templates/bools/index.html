@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% for Produit in produits %}
+
+       <section class="features">
+           <div class="feature-container">
+             <img src="{{Produit.image}}" style="max-width :350px"; alt="..."><br>
+             <h5>{{Produit.nom}}</h5>
+             <p>{{Produit.description}}</p>
+             <a href="{% url 'produit' Produit.slug %}" , style="border: solid 1px">Voir l'article</a>
+           </div>
+        </section>
+        
+{% endfor %}
+
+  
+
+
+

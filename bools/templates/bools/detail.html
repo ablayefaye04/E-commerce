@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #352a09;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #ffc107;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .login-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .product-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-details img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .product-details h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .product-details p {
+            color: #070101;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Détail du produit</h1>
+    </header>
+
+    <nav>
+        <a href="{% url 'index' %}">Accueil</a>
+        <a href="{% url 'produits' %}">Produits</a>
+        <a href="{% url 'cart' %}">Panier({{user.panier.Articles.count}}) </a>
+        <a href="{% url 'service' %}">Services</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        
+    </nav>
+
+    <div class="container">
+
+       
+
+        <div class="product-details">
+            <img src="{{produit.image.url}}" style="max-width :450px" alt="Nom du Produit">
+            <h2>{{ produit.nom}}</h2>
+            <p> Description :{{produit.description}}</p>
+            <h2>Prix : {{ produit.prix}} fcfa</h2> 
+            <h3>Quantite : {{ produit.quantite }} en Stock</h3>
+
+            {% if user.is_authenticated %}  <!-- la condition qui permet de faire l'authentification  -->
+            <p>
+                    <a href="{% url 'ajouter_panier' produit.slug %}", style="border: solid 1px">Ajouter dans le Panier</a> <!-- le bouton qui permet d'ajouter un produit dans le panier-->
+            </p>
+            {% endif %}
+            
+        </div>
+
+    </div>
+    <footer>
+        <p>&copy;  Tous droits réservés.<br>Design by
+          Ablaye Faye etudiant en licence 2 Ingenieurie Informatique 2023</p>
+    </footer>
+
+</body>
+</html>
